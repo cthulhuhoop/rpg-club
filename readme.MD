@@ -1,8 +1,5 @@
-Angular 2 Fundamentals Course
-========================
-This is the getting started package for the Pluralsight course on Angular 2 Fundamentals found here: http://app.pluralsight.com/courses/angular2-fundamentals
+RPG Club
+========
+My learning ng 2 project
 
-**Course Status**
-
-The course is currently up-to-date.
-
+based on ng2-fundamentals
