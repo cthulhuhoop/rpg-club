@@ -4,7 +4,6 @@ import {NotifyService} from '../common/notify.service';
 
 @Component({
     moduleId: module.id,
-    selector: 'events-list',
     templateUrl: 'events-list.component.html'
 })
 export class EventsListComponent implements OnInit {
