@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser'
 import { RouterModule } from '@angular/router'
 import { EventsAppComponent } from './events-app.component'
+import { CreateEventComponent } from './events/create-event.component'
 import { EventsListComponent } from './events/events-list.component'
 import { EventThumbnailComponent } from './events/event-thumbnail.component'
 import { NavBarComponent } from './nav/navbar.component'
@@ -10,6 +11,7 @@ import { EventService } from './events/shared/event.service'
 import { NotifyService } from './common/notify.service'
 import { EventDetailsComponent } from './events/event-details/event-details.component'
 import { appRoutes } from './routes'
+import { EventRouteActivator } from './events/event-details/event-route-activator.service'
 
 @NgModule({
     imports: [BrowserModule,
@@ -22,8 +24,12 @@ import { appRoutes } from './routes'
         , NavBarComponent
         , Error404Component
         , EventDetailsComponent
+        , CreateEventComponent
     ],
-    providers: [EventService, NotifyService],
+    providers: [EventService
+        , NotifyService
+        , EventRouteActivator
+    ],
     bootstrap: [EventsAppComponent]
 })
 export class AppModule { }
