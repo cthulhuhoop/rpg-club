@@ -1,5 +1,11 @@
 <div class="well hoverwell thumbnail">
-    <div>Name: {{event.name}}</div>
-    <div>Cost: £{{event.cost}}</div>
-    <button class="btn btn-primary" (click)="handleClickme()">click me!</button>
+    <div class="row">
+        <div class="col-md-6 col-sm-8">
+            <div>Name: {{event.name}}</div>
+            <div>Cost: £{{event.cost}}</div>
+        </div>
+        <div class="col-md-6 col-sm-2">
+            <button class="btn btn-primary" (click)="handleClickme()">click me!</button>
+        </div>
+    </div>
 </div>

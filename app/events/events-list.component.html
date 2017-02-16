@@ -1,7 +1,11 @@
 <div>
     <h1>Events Lister</h1>
+    <div class="row">
     <event-thumbnail 
+        *ngFor="let event of events"
         [event]="event" 
+        (click)="handleClick(event.name)"
         (eventClick)="handleEventClicked($event)"
-        ></event-thumbnail>
+        class="col-md-5"></event-thumbnail>
+    </div>
 </div>
