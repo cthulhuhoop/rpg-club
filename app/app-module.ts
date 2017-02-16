@@ -29,7 +29,18 @@ import { EventRouteActivator } from './events/event-details/event-route-activato
     providers: [EventService
         , NotifyService
         , EventRouteActivator
+        , {
+            provide: 'canDeactivateCreateEvent',
+            useValue: checkDirtyState
+        }
     ],
     bootstrap: [EventsAppComponent]
 })
 export class AppModule { }
+
+function checkDirtyState(component: CreateEventComponent) {
+    if (component.isDirty)
+        return window.confirm("dirty. proceed?")
+    return true
+}
+
