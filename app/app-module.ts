@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router'
 import { EventsAppComponent } from './events-app.component'
 import { CreateEventComponent } from './events/create-event.component'
 import { EventsListComponent } from './events/events-list.component'
+import { EventsListResolver} from './events/events-list-resolver.service'
 import { EventThumbnailComponent } from './events/event-thumbnail.component'
 import { NavBarComponent } from './nav/navbar.component'
 import { Error404Component } from './errors/404.component'
@@ -29,6 +30,7 @@ import { EventRouteActivator } from './events/event-details/event-route-activato
     providers: [EventService
         , NotifyService
         , EventRouteActivator
+        , EventsListResolver
         , {
             provide: 'canDeactivateCreateEvent',
             useValue: checkDirtyState
@@ -39,6 +41,7 @@ import { EventRouteActivator } from './events/event-details/event-route-activato
 export class AppModule { }
 
 function checkDirtyState(component: CreateEventComponent) {
+
     if (component.isDirty)
         return window.confirm("dirty. proceed?")
     return true

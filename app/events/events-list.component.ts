@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { EventService } from './shared/event.service';
-import {NotifyService} from '../common/notify.service';
+import { NotifyService } from '../common/notify.service';
 
 @Component({
     moduleId: module.id,
@@ -8,19 +9,22 @@ import {NotifyService} from '../common/notify.service';
 })
 export class EventsListComponent implements OnInit {
 
-    events: any[];
+    events: any;
 
-    constructor(private eventService: EventService
-    ,private notifyService: NotifyService) { }
+    constructor
+        (private eventService: EventService
+        , private notifyService: NotifyService
+        , private route: ActivatedRoute) { }
 
     ngOnInit() {
-        this.events = this.eventService.getEvents();
+        // this.eventService.getEvents().subscribe(events => this.events = events);
+        this.events = this.route.snapshot.data['events']
     }
 
     handleEventClicked(data) {
         console.log("parent got it:" + data)
     }
-    handleClick(eventName){
+    handleClick(eventName) {
         this.notifyService.success(eventName);
 
     }
