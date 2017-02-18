@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { EventService } from './shared/event.service';
 import { NotifyService } from '../common/notify.service';
+import { IEvent } from './shared/event.model'
 
 @Component({
     moduleId: module.id,
@@ -9,7 +10,7 @@ import { NotifyService } from '../common/notify.service';
 })
 export class EventsListComponent implements OnInit {
 
-    events: any;
+    events: IEvent[];
 
     constructor
         (private eventService: EventService

@@ -1,14 +1,15 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs/Rx'
+import { Subject, Observable } from 'rxjs/Rx'
+import { IEvent } from './event.model'
 
 @Injectable()
 export class EventService {
 
     constructor() { }
 
-    getEvents() {
+    getEvents():Observable<IEvent[]> {
 
-        let subject = new Subject()
+        let subject = new Subject<IEvent[]>()
 
         setTimeout(function() {
             subject.next(EVENTS)
@@ -18,15 +19,15 @@ export class EventService {
         return subject;
     }
 
-    getEvent(id: number) {
+    getEvent(id: number):IEvent {
         return EVENTS.find(event => event.id === id);
     }
 }
 
-const EVENTS = [
-    { id: 1, name: "Bingo Show", cost: 4.99 },
-    { id: 2, name: "Lingo Show", cost: 3.99 },
-    { id: 3, name: "Mingo Show", cost: 2.99 },
-    { id: 4, name: "Bongo Show", cost: 1.99 },
-    { id: 5, name: "go go Show", cost: 0.99 },
+const EVENTS:IEvent[] = [
+    { id: 1, name: "The Demon Court Jesters", organiser: "fred", system: "D&D 5", maxPlayers: 5 },
+    { id: 2, name: "Against the Shadow", organiser: "jim", system: "Call of Cthulhu", maxPlayers: 6 },
+    { id: 3, name: "Spinward Surge", organiser: "jane", system: "Traveler", maxPlayers: 4 },
+    { id: 4, name: "Two fisted approach", organiser: "john", system: "Savage Worlds", maxPlayers: 0 },
+    { id: 5, name: "Goblin grunts", organiser: "will", system: "D&D5", maxPlayers: 12 }
 ]
