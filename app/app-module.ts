@@ -15,6 +15,7 @@ import { NavBarComponent } from './nav/navbar.component'
 import { Error404Component } from './errors/404.component'
 import { NotifyService } from './common/notify.service'
 import { appRoutes } from './routes'
+import { AuthService } from './user/auth.service'
 
 @NgModule({
     imports: [BrowserModule,
@@ -30,6 +31,7 @@ import { appRoutes } from './routes'
         , CreateEventComponent
     ],
     providers: [EventService
+        , AuthService
         , NotifyService
         , EventRouteActivator
         , EventsListResolver
